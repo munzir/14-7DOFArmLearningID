@@ -1,4 +1,5 @@
 %% Use my old code to generate the dynamic model
+%% Test GIT
 tic;
 restoredefaultpath;
 addpath('./helper');
