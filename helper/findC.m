@@ -1,7 +1,7 @@
 function C = findC(f, A)
 
 key = keys(f);
-n = length(key)-1;
+n = length(key)-2;
 
 % Get partial derivatives of A_ij wrt q_k and store them in dA
 dA = sym(zeros(n, n, n));

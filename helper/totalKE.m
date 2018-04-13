@@ -14,7 +14,7 @@ end
 key = keys(f);
 E = sym(0);
 for i=1:length(key)
-    if(~isequal(key{i}, '0'))
+    if(~isequal(key{i}, '0') && f(key{i}).o~=0)
      E = E + KE(f, key{i}, w0, V0);
     end
 end
