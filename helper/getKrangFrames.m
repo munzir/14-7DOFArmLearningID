@@ -14,7 +14,7 @@ function f = getKrangFrames(nFrames)
 % corresponds to the current joint.
 
 syms q_1 q_2 q_3 q_4 q_5 q_6 q_7 real
-syms L1 L2 L3 L4 L5 L6 L7 L8 L9 real
+syms L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 real
 syms dq_1 dq_2 dq_3 dq_4 dq_5 dq_6 dq_7 real
 syms ddq_1 ddq_2 ddq_3 ddq_4 ddq_5 ddq_6 ddq_7 real
 syms m_1 MX_1 MY_1 MZ_1 XX_1 XY_1 XZ_1 YY_1 YZ_1 ZZ_1 real
@@ -98,8 +98,17 @@ frame.param = [m_7 MX_7 MY_7 MZ_7 XX_7 XY_7 XZ_7 YY_7 YZ_7 ZZ_7];
 % f('7') = frame;
 F{8} = frame;
 
-keys = {'0', '1', '2', '3', '4', '5', '6', '7'};
+frame.x = sym([1; 0; 0]); frame.y = sym([0; 1; 0]);
+frame.z = sym([0; 0; 1]); frame.P = [0; 0; L10];
+frame.e = sym([0; 0; 0]);  frame.a = '7';
+frame.q = sym(0); frame.dq = sym(0); frame.ddq = sym(0); frame.o = 0;
+frame.param = sym(zeros(1,10));
+% f('8') = frame;
+F{9} = frame;
 
-for i=1:nFrames+1; keySet{i} = keys{i}; frames{i} = F{i}; end
+
+keys = {'0', '1', '2', '3', '4', '5', '6', '7', '8'};
+
+for i=1:nFrames+2; keySet{i} = keys{i}; frames{i} = F{i}; end
 
 f = containers.Map( keySet, frames );

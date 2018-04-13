@@ -5,7 +5,7 @@ function U = totalPE(f)
 key = keys(f);
 U=sym(0);
 for i=1:length(key)
-    if(~isequal(key{i}, '0'))
+    if(~isequal(key{i}, '0') && f(key{i}).o~=0)
         U = U + PE(f, key{i});
     end
 end

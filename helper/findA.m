@@ -6,7 +6,7 @@ function A = findA(f, E)
 
 % Declaring an empty A matrix
 key = keys(f);
-A=sym(zeros(length(key)-1, length(key)-1));
+A=sym(zeros(length(key)-2, length(key)-2));
 
 dq=dqVec(f);
 
